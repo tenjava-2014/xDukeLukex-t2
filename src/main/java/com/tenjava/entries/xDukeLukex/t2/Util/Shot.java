@@ -94,7 +94,7 @@ public class Shot {
                                 public void run() {
                                     fb.remove();
                                 }
-                            }, 20);
+                            }, 4);
 
                             sendPacket("reddust", loc.get(d), 0, 100);
                         }
