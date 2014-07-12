@@ -7,6 +7,8 @@ import org.bukkit.ChatColor;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.io.File;
+
 public class TenJava extends JavaPlugin {
 
     private static TenJava instance;
@@ -23,6 +25,8 @@ public class TenJava extends JavaPlugin {
         pm.registerEvents(new Listeners(), this);
 
         GameState.setGameState(GameState.LOBBYING);
+
+        getLogger().info(TenJava.getInstance().getServer().getWorldContainer().toString().substring(0, TenJava.getInstance().getServer().getWorldContainer().toString().length() - 1) + File.separator + "world");
 
         if(!InjectWorld.injectWorld()){
             getLogger().info(ChatColor.RED + "Could not inject the Arena world into the server! Disabling Xenn...");
