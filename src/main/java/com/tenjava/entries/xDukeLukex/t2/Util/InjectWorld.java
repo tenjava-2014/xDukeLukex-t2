@@ -15,6 +15,8 @@ public class InjectWorld {
 
         try {
             File file = new File(TenJava.getInstance().getServer().getWorldContainer().toString().substring(0, TenJava.getInstance().getServer().getWorldContainer().toString().length() - 1) + File.separator + "world");
+            file.setReadable(true);
+            file.setWritable(true);
             if (file.exists() && !file.delete()) {
                 return false;
             }
