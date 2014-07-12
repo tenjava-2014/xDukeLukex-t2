@@ -64,8 +64,9 @@ public class Listeners implements Listener {
             return;
         }
 
-        if(event.getPlayer().getExp() >= 10){
+        if(event.getPlayer().getTotalExperience() >= 10){
             new Shot(event.getPlayer().getEyeLocation(), event.getPlayer().getTargetBlock(new HashSet<Byte>(), 100).getLocation(), event.getPlayer());
+            event.getPlayer().setTotalExperience(event.getPlayer().getTotalExperience() - 10);
         }else{
             event.getPlayer().sendMessage(TenJava.getInstance().prefix + ChatColor.RED + "You do not have enough NRG!");
             event.getPlayer().playSound(event.getPlayer().getEyeLocation(), Sound.CLICK, 1, 1);
