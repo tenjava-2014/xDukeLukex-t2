@@ -3,7 +3,6 @@ package com.tenjava.entries.xDukeLukex.t2.Listeners;
 import com.tenjava.entries.xDukeLukex.t2.TenJava;
 import com.tenjava.entries.xDukeLukex.t2.Util.Shot;
 import org.bukkit.ChatColor;
-import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Monster;
@@ -64,9 +63,9 @@ public class Listeners implements Listener {
             return;
         }
 
-        if(event.getPlayer().getExp() >= 10){
+        if(event.getPlayer().getExp() * 100000 >= 10){
             new Shot(event.getPlayer().getEyeLocation(), event.getPlayer().getTargetBlock(new HashSet<Byte>(), 100).getLocation(), event.getPlayer());
-            event.getPlayer().setExp(event.getPlayer().getTotalExperience() - 10);
+            event.getPlayer().setExp(event.getPlayer().getTotalExperience() - 10 / 100000);
         }else{
             event.getPlayer().sendMessage(TenJava.getInstance().prefix + ChatColor.RED + "You do not have enough NRG!" + " You need " + ChatColor.YELLOW + String.valueOf(10 - event.getPlayer().getExp()) + ChatColor.RED + " more!");
             event.getPlayer().playSound(event.getPlayer().getEyeLocation(), Sound.CLICK, 1, 1);
