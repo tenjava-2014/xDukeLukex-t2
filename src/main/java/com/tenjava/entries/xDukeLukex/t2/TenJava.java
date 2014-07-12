@@ -26,7 +26,7 @@ public class TenJava extends JavaPlugin {
 
         GameState.setGameState(GameState.LOBBYING);
 
-        getLogger().info(TenJava.getInstance().getServer().getWorldContainer().toString().substring(0, TenJava.getInstance().getServer().getWorldContainer().toString().length() - 1) + File.separator + "world");
+        getLogger().info(TenJava.getInstance().getServer().getWorldContainer().toString() + File.separator + "world");
 
         if(!InjectWorld.injectWorld()){
             getLogger().info(ChatColor.RED + "Could not inject the Arena world into the server! Disabling Xenn...");
