@@ -18,4 +18,18 @@ Infomation
 ----------
 
 This is LukeyBoyIsXen/xDukeLuke's submission for ten.java 2014.
-This is a minigame involving building up a base and gathering energy to use it for killing the other team.
+This is a gun plugin involving energy (NRG), therefore the name NRGuns.
+
+How To
+------
+
+Craft this:
+
+@ @ @
+    +
+    +
+    
+@ | Gold Block
++ | Stick
+
+To shoot, left click the Gun, to gather energy, eat food and kill mobs!

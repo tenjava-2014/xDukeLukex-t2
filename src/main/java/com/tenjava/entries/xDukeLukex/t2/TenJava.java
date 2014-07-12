@@ -1,20 +1,28 @@
 package com.tenjava.entries.xDukeLukex.t2;
 
 import com.tenjava.entries.xDukeLukex.t2.Listeners.Listeners;
-import com.tenjava.entries.xDukeLukex.t2.Util.GameState;
-import com.tenjava.entries.xDukeLukex.t2.Util.InjectWorld;
 import org.bukkit.ChatColor;
+import org.bukkit.Material;
+import org.bukkit.enchantments.Enchantment;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.ShapedRecipe;
+import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
-
-import java.io.File;
 
 public class TenJava extends JavaPlugin {
 
     private static TenJava instance;
     private PluginManager pm;
-    private GameState gameState;
-    public String prefix = ChatColor.DARK_GRAY + "[" + ChatColor.GOLD + "Xenn" + ChatColor.DARK_GRAY + "]: " + ChatColor.RESET;
+    public String prefix = ChatColor.DARK_GRAY + "[" + ChatColor.GOLD + "NRGuns" + ChatColor.DARK_GRAY + "]: " + ChatColor.RESET;
+
+    public static ItemStack gun = new ItemStack(Material.GOLD_HOE, 1);
+    static{
+        ItemMeta im = gun.getItemMeta();
+        im.setDisplayName(ChatColor.GOLD + ChatColor.BOLD.toString() + "GUN");
+        gun.setItemMeta(im);
+        gun.addUnsafeEnchantment(Enchantment.ARROW_DAMAGE, 10);
+    }
 
     @Override
     public void onEnable() {
@@ -24,12 +32,14 @@ public class TenJava extends JavaPlugin {
 
         pm.registerEvents(new Listeners(), this);
 
-        GameState.setGameState(GameState.LOBBYING);
+        ShapedRecipe sr = new ShapedRecipe(gun);
+        sr.shape("@@@",
+                 "  +",
+                 "  +");
+        sr.setIngredient('@', Material.GOLD_BLOCK);
+        sr.setIngredient('+', Material.STICK);
 
-        if(!InjectWorld.injectWorld()){
-            getLogger().info(ChatColor.RED + "Could not inject the Arena world into the server! Disabling Xenn...");
-            getServer().getPluginManager().disablePlugin(this);
-        }
+        getServer().addRecipe(sr);
     }
 
     @Override
@@ -40,13 +50,5 @@ public class TenJava extends JavaPlugin {
 
     public static TenJava getInstance(){
         return instance;
-    }
-
-    public void setGameState(GameState gameState){
-        this.gameState = gameState;
-    }
-
-    public GameState getGameState(){
-        return gameState;
     }
 }
