@@ -5,7 +5,7 @@ xDukeLukex's ten.java submission
 
 This is a submission for the 2014 ten.java contest.
 
-- __Theme:__
+- __Theme:__ How can energy be harnessed and used in the Minecraft world?
 - __Time:__ Time 2 (7/12/2014 09:00 to 7/12/2014 19:00 UTC)
 - __MC Version:__ 1.7.9 (latest Bukkit beta)
 - __Stream URL:__ None
@@ -14,22 +14,8 @@ This is a submission for the 2014 ten.java contest.
 
 ---------------------------------------
 
-Compilation
------------
+Infomation
+----------
 
-- Download & Install [Maven 3](http://maven.apache.org/download.html)
-- Clone the repository: `git clone https://github.com/tenjava/xDukeLukex-t2`
-- Compile and create the plugin package using Maven: `mvn`
-
-Maven will download all required dependencies and build a ready-for-use plugin package!
-
----------------------------------------
-
-Usage
------
-
-1. Install plugin
-2. Do things with it
-
-<!-- Hi, xDukeLukex! This is the default README for every ten.java submission. -->
-<!-- We encourage you to edit this README with some information about your submission – keep in mind you'll be scored on documentation! -->
+This is LukeyBoyIsXen/xDukeLuke's submission for ten.java 2014.
+This is a minigame involving building up a base and gathering energy to use it for killing the other team.
