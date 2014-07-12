@@ -25,28 +25,28 @@ import java.util.Random;
  */
 public class Listeners implements Listener {
     @EventHandler
-    public void onMobDeath(EntityDeathEvent event){
-        if(!(event.getEntity() instanceof Monster)){
+    public void onMobDeath(EntityDeathEvent event) {
+        if (!(event.getEntity() instanceof Monster)) {
             return;
         }
 
         event.setDroppedExp(0);
 
-        for(int i = 0; i < event.getEntity().getMaxHealth(); i++){
-            if((new Random().nextInt(1) % 2) == 0){
+        for (int i = 0; i < event.getEntity().getMaxHealth(); i++) {
+            if ((new Random().nextInt(1) % 2) == 0) {
                 event.getEntity().getWorld().spawnEntity(event.getEntity().getLocation(), EntityType.EXPERIENCE_ORB);
             }
         }
     }
 
     @EventHandler
-    public void onExpChange(PlayerExpChangeEvent event){
+    public void onExpChange(PlayerExpChangeEvent event) {
         event.getPlayer().sendMessage(TenJava.getInstance().prefix + ChatColor.GREEN + "You have gained more energy!");
     }
 
     @EventHandler
-    public void onConsume(FoodLevelChangeEvent event){
-        if(!(event.getEntity() instanceof Player)){
+    public void onConsume(FoodLevelChangeEvent event) {
+        if (!(event.getEntity() instanceof Player)) {
             return;
         }
 
@@ -55,28 +55,28 @@ public class Listeners implements Listener {
     }
 
     @EventHandler
-    public void onInteract(PlayerInteractEvent event){
-        if(!event.getPlayer().getItemInHand().equals(TenJava.gun)){
+    public void onInteract(PlayerInteractEvent event) {
+        if (!event.getPlayer().getItemInHand().equals(TenJava.gun)) {
             return;
         }
         event.setCancelled(true);
 
-        if(event.getAction() == Action.LEFT_CLICK_AIR|| event.getAction() == Action.LEFT_CLICK_BLOCK){
+        if (event.getAction() == Action.LEFT_CLICK_AIR || event.getAction() == Action.LEFT_CLICK_BLOCK) {
             return;
         }
 
-        if(event.getPlayer().getExp() * 100000 >= 10){
+        if (event.getPlayer().getLevel() >= 1) {
             new Shot(event.getPlayer().getEyeLocation(), event.getPlayer().getTargetBlock(null, 100).getLocation(), event.getPlayer());
-            event.getPlayer().setExp(event.getPlayer().getTotalExperience() - 10 / 100000);
-        }else{
+            event.getPlayer().setLevel(event.getPlayer().getTotalExperience() - 10 / 100000);
+        } else {
             event.getPlayer().sendMessage(TenJava.getInstance().prefix + ChatColor.RED + "You do not have enough NRG!" + " You need " + ChatColor.YELLOW + String.valueOf(10 - event.getPlayer().getExp()) + ChatColor.RED + " more!");
             event.getPlayer().playSound(event.getPlayer().getEyeLocation(), Sound.CLICK, 1, 1);
         }
     }
 
     @EventHandler
-    public void onFallingBlockLand(EntityChangeBlockEvent event){
-        if(event.getEntity() instanceof FallingBlock){
+    public void onFallingBlockLand(EntityChangeBlockEvent event) {
+        if (event.getEntity() instanceof FallingBlock) {
             event.setCancelled(true);
         }
     }

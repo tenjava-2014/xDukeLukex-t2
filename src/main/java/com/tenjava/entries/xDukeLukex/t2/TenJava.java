@@ -17,7 +17,8 @@ public class TenJava extends JavaPlugin {
     public String prefix = ChatColor.DARK_GRAY + "[" + ChatColor.GOLD + "NRGuns" + ChatColor.DARK_GRAY + "]: " + ChatColor.RESET;
 
     public static ItemStack gun = new ItemStack(Material.GOLD_HOE, 1);
-    static{
+
+    static {
         ItemMeta im = gun.getItemMeta();
         im.setDisplayName(ChatColor.GOLD + ChatColor.BOLD.toString() + "GUN");
         gun.setItemMeta(im);
@@ -34,8 +35,8 @@ public class TenJava extends JavaPlugin {
 
         ShapedRecipe sr = new ShapedRecipe(gun);
         sr.shape("@@@",
-                 "  +",
-                 "  +");
+                "  +",
+                "  +");
         sr.setIngredient('@', Material.GOLD_BLOCK);
         sr.setIngredient('+', Material.STICK);
 
@@ -48,7 +49,7 @@ public class TenJava extends JavaPlugin {
         pm = null;
     }
 
-    public static TenJava getInstance(){
+    public static TenJava getInstance() {
         return instance;
     }
 }

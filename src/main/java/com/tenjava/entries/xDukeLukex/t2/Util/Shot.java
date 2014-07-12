@@ -50,7 +50,7 @@ public class Shot {
         double zD = z / this.getDDistance();
 
         for (int d = 1; d <= this.getIDistance(); d++) {
-            if((d%2) == 0){
+            if ((d % 2) == 0) {
                 Location loc = new Location(c.getWorld(), c.getX() + (xD * d), c.getY() + (yD * d), c.getZ() + (zD * d));
                 paths.add(loc);
             }

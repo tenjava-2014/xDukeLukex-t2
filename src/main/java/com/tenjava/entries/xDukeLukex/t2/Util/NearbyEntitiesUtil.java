@@ -27,7 +27,7 @@ public class NearbyEntitiesUtil {
         Vector a = center.toVector();
         Vector b = loc.toVector();
 
-        if(a.distance(b) <= range){
+        if (a.distance(b) <= range) {
             return true;
         }
 

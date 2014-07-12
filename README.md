@@ -14,6 +14,10 @@ This is a submission for the 2014 ten.java contest.
 
 ---------------------------------------
 
+IMPORTANT!!!!!!!
+----------------
+I messed up the Jenkins stuff by doing something stupid in GitHub. To get a real working release use: https://github.com/tenjava/xDukeLukex-t2/releases
+
 Infomation
 ----------
 
