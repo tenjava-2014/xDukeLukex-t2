@@ -5,11 +5,13 @@ import com.tenjava.entries.xDukeLukex.t2.Util.Shot;
 import org.bukkit.ChatColor;
 import org.bukkit.Sound;
 import org.bukkit.entity.EntityType;
+import org.bukkit.entity.FallingBlock;
 import org.bukkit.entity.Monster;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
+import org.bukkit.event.entity.EntityChangeBlockEvent;
 import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.player.PlayerExpChangeEvent;
@@ -69,6 +71,13 @@ public class Listeners implements Listener {
         }else{
             event.getPlayer().sendMessage(TenJava.getInstance().prefix + ChatColor.RED + "You do not have enough NRG!" + " You need " + ChatColor.YELLOW + String.valueOf(10 - event.getPlayer().getExp()) + ChatColor.RED + " more!");
             event.getPlayer().playSound(event.getPlayer().getEyeLocation(), Sound.CLICK, 1, 1);
+        }
+    }
+
+    @EventHandler
+    public void onFallingBlockLand(EntityChangeBlockEvent event){
+        if(event.getEntity() instanceof FallingBlock){
+            event.setCancelled(true);
         }
     }
 }

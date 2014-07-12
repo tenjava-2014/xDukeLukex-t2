@@ -2,10 +2,7 @@ package com.tenjava.entries.xDukeLukex.t2.Util;
 
 import com.tenjava.entries.xDukeLukex.t2.TenJava;
 import net.minecraft.server.v1_7_R3.PacketPlayOutWorldParticles;
-import org.bukkit.Bukkit;
-import org.bukkit.Location;
-import org.bukkit.Material;
-import org.bukkit.Sound;
+import org.bukkit.*;
 import org.bukkit.craftbukkit.v1_7_R3.entity.CraftPlayer;
 import org.bukkit.entity.*;
 import org.bukkit.util.Vector;
@@ -97,6 +94,7 @@ public class Shot {
                             }, 4);
 
                             sendPacket("reddust", loc.get(d), 0, 100);
+                            loc.get(d).getWorld().playEffect(loc.get(d), Effect.STEP_SOUND, 79);
                         }
                     }
                 }
