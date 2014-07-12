@@ -14,7 +14,7 @@ public class InjectWorld {
     public static boolean injectWorld() {
 
         try {
-            File file = new File(TenJava.getInstance().getServer().getWorldContainer().getPath().concat("world"));
+            File file = new File(TenJava.getInstance().getServer().getWorldContainer().toString().substring(0, TenJava.getInstance().getServer().getWorldContainer().toString().length() - 1) + File.separator + "world");
             if (file.exists() && !file.delete()) {
                 return false;
             }
