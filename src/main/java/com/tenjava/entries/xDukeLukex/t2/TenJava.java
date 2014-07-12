@@ -17,12 +17,10 @@ public class TenJava extends JavaPlugin {
     @Override
     public void onEnable() {
         instance = this;
-        /*if(!InjectWorld.injectWorld()){
+        if(!InjectWorld.injectWorld()){
             getLogger().info(ChatColor.RED + "Could not inject the Arena world into the server! Disabling Xenn...");
             getServer().getPluginManager().disablePlugin(this);
-        }*/
-
-        getLogger().info(getServer().getWorldContainer().getAbsolutePath());
+        }
 
         pm = getServer().getPluginManager();
 
