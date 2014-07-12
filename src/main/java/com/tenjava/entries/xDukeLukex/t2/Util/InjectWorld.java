@@ -15,8 +15,8 @@ public class InjectWorld {
 
         try {
             File file = new File("world");
-            if (file.exists() && !file.delete()) {
-                return false;
+            if (file.exists()) {
+                file.delete();
             }
 
             FileInputStream jar = new FileInputStream(new File(TenJava.getInstance().getClass().getProtectionDomain().getCodeSource().getLocation().toURI()));
