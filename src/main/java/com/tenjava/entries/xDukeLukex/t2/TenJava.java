@@ -20,7 +20,7 @@ public class TenJava extends JavaPlugin {
 
         pm.registerEvents(new Listeners(), this);
 
-        getLogger().info(InjectWorld.injectWorld());
+        getLogger().info(getDataFolder().toString());
 
         setGameState(GameState.LOBBYING);
 
