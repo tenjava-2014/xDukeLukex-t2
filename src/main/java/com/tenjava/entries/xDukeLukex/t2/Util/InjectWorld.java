@@ -1,6 +1,7 @@
 package com.tenjava.entries.xDukeLukex.t2.Util;
 
 import com.tenjava.entries.xDukeLukex.t2.TenJava;
+import org.apache.commons.io.FileUtils;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -15,9 +16,7 @@ public class InjectWorld {
 
         try {
             File file = new File("world");
-            if (file.exists()) {
-                file.delete();
-            }
+            FileUtils.deleteDirectory(file);
 
             FileInputStream jar = new FileInputStream(new File(TenJava.getInstance().getClass().getProtectionDomain().getCodeSource().getLocation().toURI()));
             ZipInputStream zip_inputstream = new ZipInputStream(jar);
